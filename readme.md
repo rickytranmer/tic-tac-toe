@@ -28,6 +28,7 @@ For this lab, you'll be building a tic tac toe game in HTML, CSS, and pure JavaS
 - Upon marking of an individual cell, use JavaScript to add a class to
   each cell to display separate colors (either background or text--both is better)
 - A cell should not be able to be replayed once marked
+- A user should be able to see if `X` or `O` won the game
 - Add a reset button that will clear the contents of the board
 - Deploy your game online, using GitHub pages.  If you're not sure how to do this, refer back to [the earlier GitHub lesson](https://github.com/den-materials/git-branching-and-pages).
 
@@ -56,6 +57,7 @@ For this lab, you'll be building a tic tac toe game in HTML, CSS, and pure JavaS
       will be used to indicate whether or not to draw an `X` or an `O`.
 
 **Bonus:**
+- Display a message if neither `X` or `O` won the game (all squares have been played with no winner)
 - Display a message at the beginning of the game telling `X` or `O` to go first.
 - Alert the winner if they have won three in a row
     * Hint: Determine a set of winning combinations. Check those
