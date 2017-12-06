@@ -1,15 +1,17 @@
-body, html {
-	min-height: 98vh;
+html {
+	min-height: 97vh;
 	min-width: 100vh;
 	text-align: center;
 	font-size: 15vh;
+	display: inline-block;
 }
 table {
 	width: 100%;
 	border-collapse: collapse;
 }
-tr {
+td {
 	height: 32vh;
+	width: 32vh;
 }
 
 .middleColumn {
@@ -30,5 +32,5 @@ tr {
 	border-bottom: 5px solid black;
 }
 .checked {
-	
+
 }
