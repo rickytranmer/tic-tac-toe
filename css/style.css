@@ -1,0 +1,34 @@
+body, html {
+	min-height: 98vh;
+	min-width: 100vh;
+	text-align: center;
+	font-size: 15vh;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+tr {
+	height: 32vh;
+}
+
+.middleColumn {
+	border: 5px solid black;
+}
+.topBord {
+	border-top: none;
+}
+.botBord {
+	border-bottom: none;
+}
+.leftBord {
+	border-top: 5px solid black;
+	border-bottom: 5px solid black;
+}
+.rightBord {
+	border-top: 5px solid black;
+	border-bottom: 5px solid black;
+}
+.checked {
+	
+}
