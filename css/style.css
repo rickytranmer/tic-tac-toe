@@ -13,6 +13,18 @@ td {
 	height: 32vh;
 	width: 32vh;
 }
+td:hover {
+	background-color: lightGray;
+}
+button {
+	width: 75vh;
+	height: 15vh;
+	font-size: 10vh;
+	opacity: .5;
+}
+button:hover {
+	opacity: 1;
+}
 
 .middleColumn {
 	border: 5px solid black;
