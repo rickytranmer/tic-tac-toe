@@ -1,5 +1,14 @@
 var numMoves = 0;
+var row1 = 0;
+var row2 = 0;
+var row3 = 0;
+var column1 = 0;
+var column2 = 0;
+var column3 = 0;
+var diagTopLeft = 0;
+var diagTopRight = 0;
 
+//ADD - localStorage tracks wins for X player and O player
 
 // - Fill selected cell (if not already checked)
 function checkCell ($clickedCell) {
@@ -21,10 +30,12 @@ $(function(){
 		
 		checkCell($(this).closest('td'));
 
+		//ADD - Add/subtract to/from correlating row/column/diag
+
 		//ADD - Cat's game if numMoves >= 9 (8?)
 
 		//ADD - Check for win condition
 	});
 
-	//ADD - Reset button
+	//ADD - Reset button fills cells with ' ', reverts color to white, removes class 'checked'
 });
