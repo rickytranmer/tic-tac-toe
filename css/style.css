@@ -4,6 +4,7 @@ html {
 	text-align: center;
 	font-size: 15vh;
 	display: inline-block;
+	font-family: 'Montserrat', sans-serif;
 }
 table {
 	width: 100%;
@@ -17,7 +18,7 @@ td:hover {
 	background-color: lightGray;
 }
 button {
-	width: 75vh;
+	width: 66.6vh;
 	height: 15vh;
 	font-size: 10vh;
 	opacity: .5;

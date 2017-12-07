@@ -16,9 +16,10 @@ function checkCell ($clickedCell) {
 	}
 }
 
+
+// - Check for win condition
 function checkWin () {
 	console.log('-------checkWin-------');
-	// - Check for win condition
 	var $checksX = $('.xX');
 	var $checksO = $('.oO');
 	console.log($checksX);
@@ -83,16 +84,19 @@ $(function(){
 		checkCell($thisCell);
 
 		// - Check for win condition
-		if (numMoves >= 5) {
+		if ((numMoves > 4) && (numMoves < 9)) {
 			checkWin();
+		// - Check for tie
+		} else if (numMoves >= 9 ) {
+			console.log("cat's game");
+			$('.leftBord').text('L O').removeClass('oO').removeClass('xX');
+			$('.diagL.diagR').text('S E').removeClass('oO').removeClass('xX');
+			$('.rightBord').text('R S').removeClass('oO').removeClass('xX');
+			$(window).scrollTop($(document).height());
 		}
-
-		//ADD - Cat's game if numMoves >= 9 (8?)
-
-		//ADD - Scroll to bottom on cat's game or win
 	});
 
-	// - Reset button fills cells with ' ', reverts color to white, removes class 'checked'
+	// - Reset button fills cells with ' ', removes checked classes
 	$('button').click(function() {
 	console.log('-------reset-------');
 		$('td').text(' ').removeClass('checked xX oO');
