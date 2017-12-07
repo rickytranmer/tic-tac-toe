@@ -1,12 +1,4 @@
 var numMoves = 0;
-var row1 = 0;
-var row2 = 0;
-var row3 = 0;
-var column1 = 0;
-var column2 = 0;
-var column3 = 0;
-var diagTopLeft = 0;
-var diagTopRight = 0;
 
 //ADD - localStorage tracks wins for X player and O player
 
@@ -23,19 +15,30 @@ function checkCell ($clickedCell) {
 	}
 }
 
+function checkWin () {
+
+}
+
 $(function(){
 	console.log('document ready');
-	$('td').click(function(){
-		console.log($(this).closest('td'));
+	$('td').click(function() {
+		var $thisCell = $(this).closest('td');
 		
-		checkCell($(this).closest('td'));
+		checkCell($thisCell);
 
-		//ADD - Add/subtract to/from correlating row/column/diag
+		//ADD - Check for win condition
+		if (numMoves >= 5) {
+			checkWin();
+		}
 
 		//ADD - Cat's game if numMoves >= 9 (8?)
 
-		//ADD - Check for win condition
+		//ADD - Scroll to bottom on cat's game or win
 	});
 
-	//ADD - Reset button fills cells with ' ', reverts color to white, removes class 'checked'
+	// - Reset button fills cells with ' ', reverts color to white, removes class 'checked'
+	$('button').click(function() {
+		$('td').text(' ').removeClass('checked').css('background', 'white');
+		numMoves = 0;
+	});
 });
