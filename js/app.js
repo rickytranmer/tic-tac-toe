@@ -27,25 +27,36 @@ function checkWin () {
 	var $row2X = $('.xX.row2');
 	var $row3X = $('.xX.row3');
 	var $column1X = $('.xX.column3');
-	var $column3X = $('.xX.column3');
+	var $column2X = $('.xX.column2');
 	var $column3X = $('.xX.column3');
 	var $diagLX = $('.xX.diagL');
 	var $diagRX = $('.xX.diagR');
-	
+
+	//test values
 	console.log(' -Xs on row1');
 	console.log($row1X);
+	console.log(' -Xs on column3');
+	console.log($column3X);
 	console.log(' -Xs on diagL');
 	console.log($diagLX);
+
+	if (($row1X.length==3) || ($row2X.length==3) || ($row3X.length==3) || ($column1X.length==3) || ($column2X.length==3) || ($column3X.length==3) || ($diagLX.length==3) || ($diagRX.length==3)) {
+		alert('X wins!');
+	}
 
 	//------- O -------
 	var $row1O = $('.oO.row1');
 	var $row2O = $('.oO.row2');
 	var $row3O = $('.oO.row3');
 	var $column1O = $('.oO.column3');
-	var $column3O = $('.oO.column3');
+	var $column2O = $('.oO.column2');
 	var $column3O = $('.oO.column3');
 	var $diagLO = $('.oO.diagL');
 	var $diagRO = $('.oO.diagR');
+
+	if (($row1O.length==3) || ($row2O.length==3) || ($row3O.length==3) || ($column1O.length==3) || ($column2O.length==3) || ($column3O.length==3) || ($diagLO.length==3) || ($diagRO.length==3)) {
+		alert('O wins!');
+	}
 }
 
 $(function(){
