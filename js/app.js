@@ -9,6 +9,7 @@ function checkCell ($clickedCell) {
 	console.log('-------checkCell-------');
 	if (($('.diagL.diagR').html() == 'N N') || ($('.diagL.diagR').html() == 'S E')) {
 		// - Ignore clicks after a win
+		console.log('input ignored');
 	} else {
 		if ((numMoves % 2 == 0) && (!($clickedCell.hasClass('checked')))) {
 			$clickedCell.html("X").addClass('checked xX');
@@ -52,6 +53,7 @@ function checkWin () {
 	if (($row1X.length==3) || ($row2X.length==3) || ($row3X.length==3) || ($column1X.length==3) || ($column2X.length==3) || ($column3X.length==3) || ($diagLX.length==3) || ($diagRX.length==3)) {
 		//setTimeout(function() { alert('X wins!') }, 140);
 		//who tf likes alerts?!?
+		console.log('X wins');
 		xsScore++;
 		$(window).scrollTop($(document).height());
 		$('.leftBord').text('W I').addClass('xX').removeClass('oO');
@@ -73,6 +75,7 @@ function checkWin () {
 	if (($row1O.length==3) || ($row2O.length==3) || ($row3O.length==3) || ($column1O.length==3) || ($column2O.length==3) || ($column3O.length==3) || ($diagLO.length==3) || ($diagRO.length==3)) {
 		//setTimeout(function() { alert('O wins!') }, 140);
 		//who tf likes alerts?!?
+		console.log('O wins');
 		osScore++;
 		$(window).scrollTop($(document).height());
 		$('.leftBord').text('W I').addClass('oO').removeClass('xX');
@@ -83,6 +86,7 @@ function checkWin () {
 }
 
 function saveScores () {
+	console.log('-------saveScores-------');
 	localStorage.setItem('xsScore', xsScore);
 	localStorage.setItem('osScore', osScore);
 	$('title').html( 'SCORE || X: ' + xsScore + ' - O: ' + osScore);
