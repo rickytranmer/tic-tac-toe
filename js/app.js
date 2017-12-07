@@ -8,6 +8,7 @@ var osScore = localStorage.getItem('osScore') || 0;
 function checkCell ($clickedCell) {
 	console.log('-------checkCell-------');
 	if (($('.diagL.diagR').html() == 'N N') || ($('.diagL.diagR').html() == 'S E')) {
+		// - Ignore clicks after a win
 	} else {
 		if ((numMoves % 2 == 0) && (!($clickedCell.hasClass('checked')))) {
 			$clickedCell.html("X").addClass('checked xX');
@@ -84,13 +85,13 @@ function checkWin () {
 function saveScores () {
 	localStorage.setItem('xsScore', xsScore);
 	localStorage.setItem('osScore', osScore);
-	$('title').html( 'Xs: ' + xsScore + ' Os: ' + osScore);
+	$('title').html( 'SCORE || X: ' + xsScore + ' - O: ' + osScore);
 }
 
 $(function(){
 	console.log('document ready');
 	$(window).scrollTop(0);
-	$('title').html( 'Xs: ' + xsScore + ' Os: ' + osScore );
+	$('title').html( 'SCORE || X: ' + xsScore + ' - O: ' + osScore );
 
 	//ADD - On mouseover, show whether X or O is next
 	//ADD - On mouseout, revert back to previous state
