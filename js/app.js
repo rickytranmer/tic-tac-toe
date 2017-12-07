@@ -5,11 +5,11 @@ var numMoves = 0;
 // - Fill selected cell (if not already checked)
 function checkCell ($clickedCell) {
 	if ((numMoves % 2 == 0) && (!($clickedCell.hasClass('checked')))) {
-		$clickedCell.html("X").addClass('checked xX').css('background', 'pink');
+		$clickedCell.html("X").addClass('checked xX');
 		numMoves++;
 		console.log('move: ' + numMoves + '-X');
 	} else if ((numMoves % 2 == 1) && (!($clickedCell.hasClass('checked')))) {
-		$clickedCell.html("O").addClass('checked oO').css('background', 'lightBlue');
+		$clickedCell.html("O").addClass('checked oO');
 		numMoves++;
 		console.log('move: ' + numMoves + '-O');
 	}
@@ -37,11 +37,13 @@ function checkWin () {
 	console.log($row1X);
 	console.log(' -Xs on column3');
 	console.log($column3X);
-	console.log(' -Xs on diagL');
-	console.log($diagLX);
+	console.log(' -Os on diagL');
+	console.log($diagLO);
 
 	if (($row1X.length==3) || ($row2X.length==3) || ($row3X.length==3) || ($column1X.length==3) || ($column2X.length==3) || ($column3X.length==3) || ($diagLX.length==3) || ($diagRX.length==3)) {
-		alert('X wins!');
+		setTimeout(function() { alert('X wins!') }, 140);
+		$(window).scrollTop($(document).height());
+		// $('.diagL.diagR').text('X' + )
 	}
 
 	//------- O -------
@@ -55,12 +57,14 @@ function checkWin () {
 	var $diagRO = $('.oO.diagR');
 
 	if (($row1O.length==3) || ($row2O.length==3) || ($row3O.length==3) || ($column1O.length==3) || ($column2O.length==3) || ($column3O.length==3) || ($diagLO.length==3) || ($diagRO.length==3)) {
-		alert('O wins!');
+		setTimeout(function() { alert('O wins!') }, 14);
+		$(window).scrollTop($(document).height());
 	}
 }
 
 $(function(){
 	console.log('document ready');
+	$(window).scrollTop(0);
 	//ADD - On mouseover, show whether X or O is next
 	//ADD - On mouseout, revert back to previous state
 
@@ -81,7 +85,8 @@ $(function(){
 
 	// - Reset button fills cells with ' ', reverts color to white, removes class 'checked'
 	$('button').click(function() {
-		$('td').text(' ').removeClass('checked xX oO').css('background', 'white');
+		$('td').text(' ').removeClass('checked xX oO');
+		$(document).scrollTop(0);
 		numMoves = 0;
 	});
 });
