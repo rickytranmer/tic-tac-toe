@@ -1,6 +1,8 @@
 var numMoves = 0;
 
-//ADD - localStorage tracks wins for X player and O player
+// - localStorage tracks wins for X player and O player
+var xsScore = localStorage.getItem('xsScore') || 0;
+var osScore = localStorage.getItem('osScore') || 0;
 
 // - Fill selected cell (if not already checked)
 function checkCell ($clickedCell) {
@@ -46,10 +48,12 @@ function checkWin () {
 	if (($row1X.length==3) || ($row2X.length==3) || ($row3X.length==3) || ($column1X.length==3) || ($column2X.length==3) || ($column3X.length==3) || ($diagLX.length==3) || ($diagRX.length==3)) {
 		//setTimeout(function() { alert('X wins!') }, 140);
 		//who tf likes alerts?!?
+		xsScore++;
 		$(window).scrollTop($(document).height());
 		$('.leftBord').text('W I').addClass('xX').removeClass('oO');
 		$('.diagL.diagR').text('N N').addClass('xX').removeClass('oO');
 		$('.rightBord').text('E R').addClass('xX').removeClass('oO');
+		saveScores();
 	}
 
 	//------- O -------
@@ -65,16 +69,26 @@ function checkWin () {
 	if (($row1O.length==3) || ($row2O.length==3) || ($row3O.length==3) || ($column1O.length==3) || ($column2O.length==3) || ($column3O.length==3) || ($diagLO.length==3) || ($diagRO.length==3)) {
 		//setTimeout(function() { alert('O wins!') }, 140);
 		//who tf likes alerts?!?
+		osScore++;
 		$(window).scrollTop($(document).height());
 		$('.leftBord').text('W I').addClass('oO').removeClass('xX');
 		$('.diagL.diagR').text('N N').addClass('oO').removeClass('xX');
 		$('.rightBord').text('E R').addClass('oO').removeClass('xX');
+		saveScores();
 	}
+}
+
+function saveScores () {
+	localStorage.setItem('xsScore', xsScore);
+	localStorage.setItem('osScore', osScore);
+	$('title').html( 'Xs: ' + xsScore + ' Os: ' + osScore);
 }
 
 $(function(){
 	console.log('document ready');
 	$(window).scrollTop(0);
+	$('title').html( 'Xs: ' + xsScore + ' Os: ' + osScore );
+
 	//ADD - On mouseover, show whether X or O is next
 	//ADD - On mouseout, revert back to previous state
 
