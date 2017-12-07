@@ -7,14 +7,17 @@ var osScore = localStorage.getItem('osScore') || 0;
 // - Fill selected cell (if not already checked)
 function checkCell ($clickedCell) {
 	console.log('-------checkCell-------');
-	if ((numMoves % 2 == 0) && (!($clickedCell.hasClass('checked')))) {
-		$clickedCell.html("X").addClass('checked xX');
-		numMoves++;
-		console.log('move: ' + numMoves + '-X');
-	} else if ((numMoves % 2 == 1) && (!($clickedCell.hasClass('checked')))) {
-		$clickedCell.html("O").addClass('checked oO');
-		numMoves++;
-		console.log('move: ' + numMoves + '-O');
+	if (($('.diagL.diagR').html() == 'N N') || ($('.diagL.diagR').html() == 'S E')) {
+	} else {
+		if ((numMoves % 2 == 0) && (!($clickedCell.hasClass('checked')))) {
+			$clickedCell.html("X").addClass('checked xX');
+			numMoves++;
+			console.log('move: ' + numMoves + '-X');
+		} else if ((numMoves % 2 == 1) && (!($clickedCell.hasClass('checked')))) {
+			$clickedCell.html("O").addClass('checked oO');
+			numMoves++;
+			console.log('move: ' + numMoves + '-O');
+		}
 	}
 }
 
